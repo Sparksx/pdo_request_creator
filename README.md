@@ -37,20 +37,21 @@ false (5ème paramètre) : récupère toutes les lignes (a true, seul la premiè
 true (6ème paramètre) : true = mode debug activé    
 
 ###Le select_one
- */
+
 ```php
 $resultat = Requete::select_one('articles', NULL, 'tarif_ht', 5);    
 // SELECT * FROM articles WHERE `tarif_ht` = :marqueur0;
 // Cette ligne créer une requete permettant de recupérer la première ligne de la table article dont la colonne 'tarif_ht' est égale à 5
 ```
 
-/*
- * Le select_one s'utilise de la même façon que le select_all
- * (Les conditions multiples sont aussi accessibles)
- * Le debug du select_one est le 5ème paramètre (true/false)
- * 
- * Dans le cas ou ces selecteurs basique ne sufisent pas, il est possible de créer une requete de type select :
- */
+Le select_one s'utilise de la même façon que le select_all   
+(Les conditions multiples sont aussi accessibles)    
+Le debug du select_one est le 5ème paramètre (true/false)    
+
+===================
+
+Dans le cas ou ces selecteurs basique ne sufisent pas, il est possible de créer une requete de type select :   
+
 $requeteTypeSelect = Requete::select();
 // Le constructeur possède un paramètre facultatif : la ou les tables visé.
 $requeteTypeSelect = Requete::select('articles');
