@@ -33,8 +33,10 @@ il y a donc 2 façons d'utiliser la même fonction
 ```php
 $resultat = Requete::select_all(table, donnees, ligne, valeur, false, true);
 ```
-false (5ème paramètre) : récupère toutes les lignes (a true, seul la première ligne est récupéré)    
+false (5ème paramètre) : récupère toutes les lignes (à true, seule la première ligne est récupérée)    
 true (6ème paramètre) : true = mode debug activé    
+
+----------------
 
 ###Le select_one
 
@@ -44,8 +46,7 @@ $resultat = Requete::select_one('articles', NULL, 'tarif_ht', 5);
 // Cette ligne créer une requete permettant de recupérer la première ligne de la table article dont la colonne 'tarif_ht' est égale à 5
 ```
 
-Le select_one s'utilise de la même façon que le select_all   
-(Les conditions multiples sont aussi accessibles)    
+Le select_one s'utilise de la même façon que le select_all (Les conditions multiples sont aussi accessibles)    
 Le debug du select_one est le 5ème paramètre (true/false)    
 
 ===================
@@ -93,8 +94,10 @@ $requeteTypeSelect->limite(0, 10);
 // Il est aussi possible de grouper les données :
 $requeteTypeSelect->groupBy('id_famille');
 
-//-------------------------------------------------
-// Des exemples :
+------------------------
+####Des exemples :
+
+```php
 $selectArticles = Requete::select('articles');
 $selectArticles
 	->condition('OR', 'designation', 'LIKE', '%'._RECHERCHE_.'%')
@@ -105,17 +108,21 @@ $selectArticles->debug(); // Permet de debuger la requete
 
 $articles = $selectArticles->execute();
 // Selectionne tout les données des articles dont la designation ou la description contient la constante _RECHERCHE_ et tri les resultats par tarif_ht croissant
+```
 
-//-------------------------------------------------
+------------------------
 
+```php
 $supprimeLignesPanier = Requete::remove('panier_ligne');
 $supprimeLignesPanier->condition('AND', 'id_panier', '=', $idPanierClient);
 $supprimeLignesPanier->execute();
 // Supprime toutes les lignes ou 'id_panier' est égale a $idPanierClient dans la tables panier_ligne
 // Pour les suppression, seul les conditions sont utilisés
+```
 
-//-------------------------------------------------
+-----------------------
 
+```php
 $creerNouveauPanier = Requete::insert('panier_ligne');
 $creerNouveauPanier->donnees(array(
 	'id_panier' => $idPanierClient,
@@ -125,9 +132,11 @@ $creerNouveauPanier->donnees(array(
 $creerNouveauPanier->execute();
 // Création d'une nouvelle ligne dans le panier, avec les valeurs passé dans les variables
 // Pour les insertion, seul les données sont utilisés
+```
 
-//-------------------------------------------------
+----------------------
 
+```php
 $modifierLignePanier = Requete::update('panier_ligne');
 $modifierLignePanier->donnees(array(
 		'quantite' => 10
@@ -138,3 +147,4 @@ $modifierLignePanier->donnees(array(
 $modifierLignePanier->execute();
 // Modifie la quantité des lignes du panier lorsque l'id_panier et l'id_article sont égales à ceux passés
 // Pour les modifications, seuls les données et les conditions sont utilisé
+```
