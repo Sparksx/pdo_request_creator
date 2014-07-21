@@ -7,6 +7,8 @@
  */
 class Select extends Requete {
 	
+	public static $_version = '0.0.1';
+	
 	function __construct($table = null) {
 		parent::__construct(1, $table);
 	}

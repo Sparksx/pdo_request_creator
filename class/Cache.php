@@ -8,6 +8,8 @@
 
 class Cache {
 	
+	public static $_version = '0.0.1';
+	
 	public static $_infos = array();
 	
 	/*

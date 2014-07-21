@@ -7,6 +7,8 @@
  */
 class Delete extends Requete {
 	
+	public static $_version = '0.0.1';
+	
 	function __construct($table = null) {
 		parent::__construct(4, $table);
 	}

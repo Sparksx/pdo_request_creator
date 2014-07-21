@@ -6,6 +6,8 @@
  */
 class Instance {
 	
+	public static $_version = '0.0.1';
+	
 	public static $_INSTANCES_ = array();
 	
 	const _INSTANCE_ = 'instance';

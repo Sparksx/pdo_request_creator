@@ -5,6 +5,8 @@
  */
 class BaseDeDonnee extends Instance {
 	
+	public static $_version = '0.0.1';
+	
 	public $base = null;
 	private static $_alreadyConnected = array();
 	
