@@ -3,6 +3,7 @@
  * Description of Instance
  *
  * @author sparks
+ * @version 0.0.1
  */
 class Instance {
 	
@@ -32,7 +33,7 @@ class Instance {
 		return $instances;
 	}
 	
-	public function _to_array_() {
+	public function __toArray() {
 		return (array) $this;
 	}
 	

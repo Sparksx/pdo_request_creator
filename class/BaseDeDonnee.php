@@ -2,6 +2,7 @@
 
 /**
  * @author sparks
+ * @version 0.0.1
  */
 class BaseDeDonnee extends Instance {
 	

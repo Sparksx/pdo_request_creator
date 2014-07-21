@@ -4,6 +4,7 @@
  * Description of Insert
  *
  * @author Sparks
+ * @version 0.0.1
  */
 class Insert extends Requete {
 	

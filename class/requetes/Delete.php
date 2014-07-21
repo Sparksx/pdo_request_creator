@@ -4,6 +4,7 @@
  * Description of Delete
  *
  * @author Sparks
+ * @version 0.0.1
  */
 class Delete extends Requete {
 	

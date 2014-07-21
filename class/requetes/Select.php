@@ -4,6 +4,7 @@
  * Description of Select
  *
  * @author Sparks
+ * @version 0.0.1
  */
 class Select extends Requete {
 	
