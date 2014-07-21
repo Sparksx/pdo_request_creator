@@ -24,11 +24,13 @@ $resultat = Requete::select_all('articles', NULL, array(
 // SELECT * FROM articles WHERE `tarif_ht` = :marqueur0 AND `description` = :marqueur1;    
 // Cette ligne créer une requete permettant de recupérer toutes les lignes de la table article dont la colonne 'tarif_ht' est égale a 10 ET la valeur de la colonne 'description' est bleu     
 // NOTE : Toutes les conditions seront assamblés avec l'opérateur AND     
-     
-// select_all retourne FALSE si aucune ligne ne correspond, ou un tableau contenant la ou les lignes qui correspondent
 ```
+######Valeur de retour :
+- FALSE : Aucun resultat ne correspond à la demande
+- Array : Tableau contenant le ou les resultats correspondants
 
-il y a donc 2 façons d'utiliser la même fonction    
+il y a donc 2 façons d'utiliser la même fonction.    
+    
 #####Pour debuger :    
 ```php
 $resultat = Requete::select_all(table, donnees, ligne, valeur, false, true);
@@ -51,7 +53,8 @@ Le debug du select_one est le 5ème paramètre (true/false)
 
 ===================
 
-Dans le cas ou ces selecteurs basique ne sufisent pas, il est possible de créer une requete de type select :   
+Dans le cas ou ces selecteurs basique ne sufisent pas, il est possible de créer des requetes avancés :  
+(Les requetes update, remove et insert reposent sur le même moteur que select) 
 
 $requeteTypeSelect = Requete::select();
 // Le constructeur possède un paramètre facultatif : la ou les tables visé.
@@ -125,9 +128,9 @@ $supprimeLignesPanier->execute();
 ```php
 $creerNouveauPanier = Requete::insert('panier_ligne');
 $creerNouveauPanier->donnees(array(
-	'id_panier' => $idPanierClient,
-	'id_article' => $id_article,
-	'quantite' => $quantite
+	'id_panier' => 5,
+	'id_article' => 18453,
+	'quantite' => 2
 ));
 $creerNouveauPanier->execute();
 // Création d'une nouvelle ligne dans le panier, avec les valeurs passé dans les variables
