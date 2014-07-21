@@ -1,20 +1,17 @@
 PDO_request_creator
 ===================
 
-Php class to create secure sql request
+Php class to create secure sql request   
 
-/*
- * Toutes le requetes se construises de façon statique. (Requete::...)
- * Il existe un mode debug pour toutes les requetes, mais il est encore un peu bancale ; J'y travail.
- * 
- * -------------------------------------------------
- * -------------------------------------------------
- * 
- * Dans la classe Requete, il y a 2 gros racourci interessant :
- * 
- * - Le select_all
- */
-$resultat = Requete::select_all('articles', NULL, 'tarif_ht', 5);
+Toutes le requetes se construises de façon statique. (Requete::...)     
+Il existe un mode debug pour toutes les requetes, mais il est encore un peu bancale ; J'y travail.    
+
+
+Dans la classe Requete, il y a 2 gros racourci interessant :    
+
+Le select_all   
+ 
+$resultat = Requete::select_all('articles', NULL, 'tarif_ht', 5);   
 // SELECT * FROM articles WHERE `tarif_ht` = :marqueur0;
 // Cette ligne créer une requete permettant de recupérer toutes les lignes de la table article dont la colonne 'tarif_ht' est égale à 5
 
