@@ -1,14 +1,20 @@
 PDO_request_creator
 ===================
 
-Php class to create secure sql request   
+PDO_request_creator est un enssemble de classes permetant au jeunes développeurs de manipuler facilement leurs bases de données, et ce en toutes sécurité.  
+En effet, les requètes sont faite à l'aide de PDO et sont des requètes préparées.    
+
+===================
+
+Le wiki est en cours de réalisation. Trouvez ci-aprés quelques explications.
+
+===================
 
 Toutes le requetes se construises de façon statique. (Requete::...)     
 Il existe un mode debug pour toutes les requetes, mais il est encore un peu bancale ; J'y travail.    
-
-
+    
+   
 Dans la classe Requete, il y a 2 gros racourci interessant :    
-
 ###Le select_all   
 ```php
 $resultat = Requete::select_all('articles', NULL, 'tarif_ht', 5);   
