@@ -9,7 +9,7 @@ Il existe un mode debug pour toutes les requetes, mais il est encore un peu banc
 
 Dans la classe Requete, il y a 2 gros racourci interessant :    
 
-Le select_all   
+###Le select_all   
 ```php
 $resultat = Requete::select_all('articles', NULL, 'tarif_ht', 5);   
 // SELECT * FROM articles WHERE `tarif_ht` = :marqueur0;    
@@ -28,18 +28,21 @@ $resultat = Requete::select_all('articles', NULL, array(
 // select_all retourne FALSE si aucune ligne ne correspond, ou un tableau contenant la ou les lignes qui correspondent
 ```
 
-/*
- * il y a donc 2 façons d'utiliser la même fonction
- * Pour debuger :
- * $resultat = Requete::select_all(table, donnees, ligne, valeur, false, true); 
- * false (5ème paramètre) : récupère toutes les lignes (a true, seul la première ligne est récupéré)
- * true (6ème paramètre) : true = mode debug activé
- * 
- * - Le select_one
+il y a donc 2 façons d'utiliser la même fonction    
+#####Pour debuger :    
+```php
+$resultat = Requete::select_all(table, donnees, ligne, valeur, false, true);
+```
+false (5ème paramètre) : récupère toutes les lignes (a true, seul la première ligne est récupéré)    
+true (6ème paramètre) : true = mode debug activé    
+
+###Le select_one
  */
-$resultat = Requete::select_one('articles', NULL, 'tarif_ht', 5);
+```php
+$resultat = Requete::select_one('articles', NULL, 'tarif_ht', 5);    
 // SELECT * FROM articles WHERE `tarif_ht` = :marqueur0;
 // Cette ligne créer une requete permettant de recupérer la première ligne de la table article dont la colonne 'tarif_ht' est égale à 5
+```
 
 /*
  * Le select_one s'utilise de la même façon que le select_all
