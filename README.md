@@ -10,20 +10,23 @@ Il existe un mode debug pour toutes les requetes, mais il est encore un peu banc
 Dans la classe Requete, il y a 2 gros racourci interessant :    
 
 Le select_all   
- 
+```php
 $resultat = Requete::select_all('articles', NULL, 'tarif_ht', 5);   
-// SELECT * FROM articles WHERE `tarif_ht` = :marqueur0;
+// SELECT * FROM articles WHERE `tarif_ht` = :marqueur0;    
 // Cette ligne créer une requete permettant de recupérer toutes les lignes de la table article dont la colonne 'tarif_ht' est égale à 5
+```
 
-$resultat = Requete::select_all('articles', NULL, array(
-	'tarif_ht' => 10,
-	'description' => 'bleu'
-));
-// SELECT * FROM articles WHERE `tarif_ht` = :marqueur0 AND `description` = :marqueur1;
-// Cette ligne créer une requete permettant de recupérer toutes les lignes de la table article dont la colonne 'tarif_ht' est égale a 10 ET la valeur de la colonne 'description' est bleu
-// NOTE : Toutes les conditions seront assamblés avec l'opérateur AND
-
+```php
+$resultat = Requete::select_all('articles', NULL, array(    
+	'tarif_ht' => 10,    
+	'description' => 'bleu'    
+));   
+// SELECT * FROM articles WHERE `tarif_ht` = :marqueur0 AND `description` = :marqueur1;    
+// Cette ligne créer une requete permettant de recupérer toutes les lignes de la table article dont la colonne 'tarif_ht' est égale a 10 ET la valeur de la colonne 'description' est bleu     
+// NOTE : Toutes les conditions seront assamblés avec l'opérateur AND     
+     
 // select_all retourne FALSE si aucune ligne ne correspond, ou un tableau contenant la ou les lignes qui correspondent
+```
 
 /*
  * il y a donc 2 façons d'utiliser la même fonction
