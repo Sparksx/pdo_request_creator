@@ -86,19 +86,21 @@ $requeteTypeSelect->donnee('COUNT(id_famille) AS nombreDeFamille');
 // Les fonctions sont utilisables tels quels
 ```
 
+La definition des conditions :
 ```php
 // Il est possible de definir des conditions tels que :
 $requeteTypeSelect->condition('AND', 'tarif_ht', '>', 20);
-// Comme pour select_all il est possible de passer un tableau de condition : 
+// Comme pour select_all il est possible de passer un tableau de condition (Colle AND) : 
 $requeteTypeSelect->conditions(array(
 	'colonne' => 'valeur'
 ));
 // Ou bien d'ecrire manuellement une condition (complexe ou pas)
 $requeteTypeSelect->conditionString('id_article IN(30, 45, 56, 54)');
 $requeteTypeSelect->conditionString('OR designation LIKE "%biere%"');
-// Attention a sécuriser les variables passé dans ces conditions avec addslashes
+// Attention à sécuriser les variables passé dans ces conditions avec addslashes
 ```
 
+Gestion de l'ordre :
 ```php
 // Il est possible de definir l'ordre de tri (ORDER BY)
 $requeteTypeSelect->orderBy('tarif_ht', 'DESC', true);
@@ -107,12 +109,14 @@ $requeteTypeSelect->orderBy('tarif_ht', 'DESC', true);
 // Il est utile dans le cas ou l'on utilise une fonction (COUNT(id_famille) AS nombreDeFamille) et que l'on veux trier en fonction du resultat (nombreDeFamille)
 ```
 
+Limite de récupération :
 ```php
 // La limit est egalement utilisable :
 $requeteTypeSelect->limite(0, 10);
 // Ne récupèrera que les 10 premières lignes
 ```
 
+Groupement :
 ```php
 // Il est aussi possible de grouper les données :
 $requeteTypeSelect->groupBy('id_famille');
