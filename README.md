@@ -3,11 +3,8 @@ PDO_request_creator
 
 PDO_request_creator est un enssemble de classes permetant au jeunes développeurs de manipuler facilement leurs bases de données, et ce en toutes sécurité.  
 En effet, les requètes sont faite à l'aide de PDO et sont des requètes préparées.    
-
 ===================
-
 Le wiki est en cours de réalisation. Trouvez ci-aprés quelques explications.
-
 ===================
 
 Toutes le requetes se construises de façon statique. (Requete::...)     
@@ -58,19 +55,28 @@ Le select_one s'utilise de la même façon que le select_all (Les conditions mul
 Le debug du select_one est le 5ème paramètre (true/false)    
 
 ===================
-
+    
 Dans le cas ou ces selecteurs basique ne sufisent pas, il est possible de créer des requetes avancés :  
 (Les requetes update, remove et insert reposent sur le même moteur que select) 
 
+La selection de la ou les tables visées peux se faire de 2 manières :
+- Par le constructeur :
+```php
 $requeteTypeSelect = Requete::select();
 // Le constructeur possède un paramètre facultatif : la ou les tables visé.
 $requeteTypeSelect = Requete::select('articles');
 $requeteTypeSelect = Requete::select(array('articles', 'articles_famille'));
+```
 
+- Par les méthodes :
+```php
 // Il est également possible de selectionner la ou les tables au travers des fonctions table et tables
 $requeteTypeSelect->table('panier_ligne');
 $requeteTypeSelect->tables(array('panier_ligne', 'panier_entete'));
+```
 
+La selection des données se fait par l'une des méthodes "donnees" ou "donnee"
+```php
 // A partir de l'objet créé, on peux définir quels données on souhaite récuperer :
 $requeteTypeSelect->donnee('tarif_ht');
 $requeteTypeSelect->donnees(array('designation', 'nom', 'article_famille.id_famille'));
@@ -78,7 +84,9 @@ $requeteTypeSelect->donnees(array('designation', 'nom', 'article_famille.id_fami
 // Si vous demandez à récupérer une colonne qui n'existe pas (en dehors d'une fonction), celle ci seras ignoré
 $requeteTypeSelect->donnee('COUNT(id_famille) AS nombreDeFamille');
 // Les fonctions sont utilisables tels quels
+```
 
+```php
 // Il est possible de definir des conditions tels que :
 $requeteTypeSelect->condition('AND', 'tarif_ht', '>', 20);
 // Comme pour select_all il est possible de passer un tableau de condition : 
@@ -89,22 +97,28 @@ $requeteTypeSelect->conditions(array(
 $requeteTypeSelect->conditionString('id_article IN(30, 45, 56, 54)');
 $requeteTypeSelect->conditionString('OR designation LIKE "%biere%"');
 // Attention a sécuriser les variables passé dans ces conditions avec addslashes
+```
 
+```php
 // Il est possible de definir l'ordre de tri (ORDER BY)
 $requeteTypeSelect->orderBy('tarif_ht', 'DESC', true);
 // L'ordre par defaut est ASC
 // Le dernier paramètre permet de dire si il faut verifier ou non l'existance de la colonne
 // Il est utile dans le cas ou l'on utilise une fonction (COUNT(id_famille) AS nombreDeFamille) et que l'on veux trier en fonction du resultat (nombreDeFamille)
+```
 
+```php
 // La limit est egalement utilisable :
 $requeteTypeSelect->limite(0, 10);
 // Ne récupèrera que les 10 premières lignes
+```
 
+```php
 // Il est aussi possible de grouper les données :
 $requeteTypeSelect->groupBy('id_famille');
-
+```
 ------------------------
-####Des exemples :
+####Quelques exemples commenté :
 
 ```php
 $selectArticles = Requete::select('articles');
@@ -125,7 +139,7 @@ $articles = $selectArticles->execute();
 $supprimeLignesPanier = Requete::remove('panier_ligne');
 $supprimeLignesPanier->condition('AND', 'id_panier', '=', $idPanierClient);
 $supprimeLignesPanier->execute();
-// Supprime toutes les lignes ou 'id_panier' est égale a $idPanierClient dans la tables panier_ligne
+// Supprime toutes les lignes où 'id_panier' est égale à $idPanierClient dans la tables panier_ligne
 // Pour les suppression, seul les conditions sont utilisés
 ```
 
