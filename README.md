@@ -2,9 +2,13 @@ PDO_request_creator
 ===================
 
 PDO_request_creator est un enssemble de classes permetant au jeunes développeurs de manipuler facilement leurs bases de données, et ce en toutes sécurité.  
-En effet, les requètes sont faite à l'aide de PDO et sont des requètes préparées.    
+En effet, les requètes sont faite à l'aide de PDO et sont des requètes préparées. 
+
+  
 ===================
 Le wiki est en cours de réalisation. Trouvez ci-aprés quelques explications.
+
+
 ===================
 
 Toutes le requetes se construises de façon statique. (Requete::...)     
