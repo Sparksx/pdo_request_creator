@@ -11,7 +11,12 @@ Le wiki est en cours de réalisation. Trouvez ci-aprés quelques explications.
 
 ===================
 
-Toutes le requetes se construises de façon statique. (Requete::...)     
+La configuration est simple et se trouve dans config/databases.php
+
+
+-------------------
+
+Toutes les requetes se construises de façon statique. (Requete::...)     
 Il existe un mode debug pour toutes les requetes, mais il est encore un peu bancale ; J'y travail.    
     
    
