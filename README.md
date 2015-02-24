@@ -184,3 +184,12 @@ $modifierLignePanier->execute();
 // Modifie la quantité des lignes du panier lorsque l'id_panier et l'id_article sont égales à ceux passés
 // Pour les modifications, seuls les données et les conditions sont utilisé
 ```
+
+----------------------
+###Todo-list
+
+- Transcription en Anglais (Anglais et français disponible)
+- Gestion des multi-insertions (préparation -> insertion)
+- Amélioration des statistiques
+- Amélioration de la gestion des érreurs
+- Meilleur gestion des jointures
